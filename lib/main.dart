@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:hr_at/Date%20customize.dart';
+import 'package:hr_at/today.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-
 
 void main() async {
   await Supabase.initialize(
@@ -38,7 +39,6 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
   final TextEditingController _controller = TextEditingController();
   List<Map<String, dynamic>> _employeeList = [];
   bool _isLoading = false;
-
   @override
   void initState() {
     super.initState();
@@ -295,9 +295,10 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
           icon: const Icon(Icons.calendar_month),
           onSelected: (String value) {
             if (value == 'today') {
-
+Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Today()));
             } else if (value == 'custom') {
-
+              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Date_Customize()));
+              // Navigator.pushNamed(context, '/custom');
             }
           },
           itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
