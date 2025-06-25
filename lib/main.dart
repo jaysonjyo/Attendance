@@ -4,6 +4,8 @@ import 'package:hr_at/Date%20customize.dart';
 import 'package:hr_at/today.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'Leave_report_view.dart';
+
 void main() async {
   await Supabase.initialize(
     url: 'https://thftmoghwfgztcdmbrho.supabase.co',
@@ -23,7 +25,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const AttendanceScreen(),
+     home: CalendarPage(),
+     // home: const AttendanceScreen(),
     );
   }
 }
@@ -297,7 +300,7 @@ class _AttendanceScreenState extends State<AttendanceScreen> {
             if (value == 'today') {
 Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Today()));
             } else if (value == 'custom') {
-              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Date_Customize()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>DateCustomize()));
               // Navigator.pushNamed(context, '/custom');
             }
           },
